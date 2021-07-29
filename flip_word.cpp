@@ -17,10 +17,10 @@ int	main(void) {
 
 	while (t--) {
 		getline(cin, str);
-
+		str += '\n';
 		i = 0;
-		while (true) {
-			if (str[i] == ' ' || str[i] == 0) {
+		while (str[i]) {
+			if (str[i] == ' ' || str[i] == '\n') {
 				while (!s.empty()) {
 					cout << s.top();
 					s.pop();
@@ -29,10 +29,8 @@ int	main(void) {
 			} else {
 				s.push(str[i]);
 			}
-			if (str[i] == 0) break ;
 			i++;
 		}
-		cout << "\n";
 	}
 	return (0);
 }
