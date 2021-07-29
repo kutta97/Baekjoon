@@ -1,25 +1,23 @@
 #include <iostream>
-#include <stack>
 #include <string>
 using namespace std;
 
-int	valid(string str) {
+string	valid(string s) {
 	int	i;
-	stack<char> s;
+	int cnt;
 
 	i = 0;
-	while (str[i]) {
-		if (str[i] == '(') {
-			s.push(str[i]);
-		}
-		else if (str[i] == ')') {
-			if (s.empty()) return (0);
-			s.pop();
+	cnt = 0;
+	while (s[i]) {
+		if (s[i] == '(') cnt++;
+		else {
+			if (cnt == 0) return ("NO");
+			cnt--;
 		}
 		i++;
 	}
-	if (s.empty()) return (1);
-	else return (0);
+	if (cnt == 0) return ("YES");
+	else return ("NO");
 }
 
 int	main(void) {
@@ -33,8 +31,7 @@ int	main(void) {
 	cin >> t;
 	while (t--) {
 		cin >> str;
-		if (valid(str)) cout << "YES\n";
-		else cout << "NO\n";
+		cout << valid(str) << '\n';
 	}
 
 	return (0);
