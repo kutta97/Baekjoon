@@ -20,11 +20,9 @@ int main(void) {
 		if (ch == '<') { 
 			print(s);
 			tag = true;
-			cout << ch;
-		} else if (ch == '>') {
-			tag = false;
-			cout << ch;
-		} else if (tag) {
+		}
+		
+		if (tag) {
 			cout << ch;
 		} else {
 			if (ch == ' ') {
@@ -33,6 +31,10 @@ int main(void) {
 			} else {
 				s.push(ch);
 			}
+		}
+
+		if (ch == '>') {
+			tag = false;
 		}
 	}
 	print(s);
