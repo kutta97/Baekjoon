@@ -13,33 +13,27 @@ void print(stack<char> &s) {
 int main(void) {
 	string str;
 	stack<char> s;
-	bool tag;
-	int i;
+	bool tag = false;
 
 	getline(cin, str);
-	tag = false;
-	i = 0;
-	while (str[i]) {
-		if (str[i] == '<') { 
+	for (char ch : str) {
+		if (ch == '<') { 
 			print(s);
 			tag = true;
-		}
-
-		if (tag) {
-			cout << str[i];
+			cout << ch;
+		} else if (ch == '>') {
+			tag = false;
+			cout << ch;
+		} else if (tag) {
+			cout << ch;
 		} else {
-			if (str[i] == ' ') {
+			if (ch == ' ') {
 				print(s);
-				cout << str[i];
-			}else {
-				s.push(str[i]);
+				cout << ch;
+			} else {
+				s.push(ch);
 			}
 		}
-
-		if (str[i] == '>') {
-			tag = false;
-		}
-		i++;
 	}
 	print(s);
 	cout << '\n';
