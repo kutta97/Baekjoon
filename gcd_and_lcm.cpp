@@ -2,16 +2,8 @@
 using namespace std;
 
 int gcd(int a, int b) {
-	if (b == 0) {
-		return (a);
-	} else {
-		return (gcd(b, a % b));
-	}
-}
-
-int lcm(int a, int b) {
-	int g = gcd(a, b);
-	return (g * (a / g) * (b / g));
+	if (b == 0) return (a);
+	else return (gcd(b, a % b));
 }
 
 int main(void) {
@@ -22,8 +14,9 @@ int main(void) {
 	int a, b;
 	cin >> a >> b;
 
-	cout << gcd(a, b) << '\n';
-	cout << lcm(a, b) << '\n';
+	int g = gcd(a, b);
+	cout << g << '\n';
+	cout << (a * b) / g << '\n';
 
 	return (0);
 }
