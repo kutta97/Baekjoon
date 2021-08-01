@@ -24,7 +24,7 @@ int main(void) {
 	while (true) {
 		cin >> n;
 		if (n == 0) break ;
-		for (int i = 0; i < pn; i++) {
+		for (int i = 1; i < pn; i++) {
 			if (check[n - prime[i]] == false) {
 				cout << n << " = " << prime[i] << " + " << n - prime[i] << '\n';
 				break ;
